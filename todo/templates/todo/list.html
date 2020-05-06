@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}List_Of_Tasks{% endblock %}
+
+{% block content %}
+    <h1>{{ ls.name }}</h1>
+    
+    <form method="POST" action="">
+        {% csrf_token %}
+        <ul>
+            {% for item in ls.tasksmodel_set.all %}
+                {% if item.done == True %}
+                    <strike><li><input type="checkbox" value="clicked" name="c{{item.id}}" checked>{{ item.text }}</li></strike>
+                {% else %}
+                    <li>><input type="checkbox" value="clicked" name="c{{item.id}}">{{ item.text }}</li>
+                {% endif %}
+            {% endfor %}
+            <button type="submit" class="btn btn-outline-dark" name="update_item" value="update_item">Save</button>
+            <input type="text" name="add_text">
+            <button type="submit" class="btn btn-outline-dark" name="add_item" value="add_item">Add</button>
+        </ul>
+    </form>    
+
+{% endblock %}

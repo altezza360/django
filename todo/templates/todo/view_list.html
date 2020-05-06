@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}List of Todo's{% endblock %}
+
+{% block content %}
+	<div class="list-group">
+
+    	{% for todo in user.todolist.all %}
+			<a href="/{{ todo.id }}" class="list-group-item list-group-item-action">{{ todo.name }}</a>
+		{% endfor %} 
+	</div>
+{% endblock %}	
