@@ -7,4 +7,4 @@ urlpatterns = [
     path('create/', create, name = 'create_url'),
     path('view/', view_list, name = 'view_list_url'),
 ]
-# /Test commit1
+# /Test commit
